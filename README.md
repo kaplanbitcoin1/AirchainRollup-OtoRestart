@@ -109,4 +109,4 @@ sudo journalctl -u tracksd -fo cat
 ```
 
 
-> Bir insan ömrünü neye vermeli?
+> Sanırım? 😁 🐅
