@@ -11,7 +11,7 @@
 nano /root/check_tracks.sh
 ```
 
-* Tek komut halinde içerisine yapıştıralım ve ctrl+x ctrl+y=Enter (Hiçbir şeyi değiştirmeden) 🐅
+* Tek komut halinde içerisine yapıştıralım ve ctrlx ctrly=Enter (Hiçbir şeyi değiştirmeden) 🐅
 
 ```shell
 # Log dosyasındaki hataları kontrol eden komutlar
