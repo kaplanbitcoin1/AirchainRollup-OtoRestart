@@ -118,12 +118,13 @@ sudo journalctl -u tracksd -fo cat
 
 ```powershell
 # Log dosyasındaki hataları kontrol eden komutlar
-vrf_init_log_command="journalctl -u tracksd -n 5 --no-pager | grep 'Failed to Init VRF'"
-vrf_record_log_command="journalctl -u tracksd -n 5 --no-pager | grep 'VRF record is nil'"
-vrf_validate_log_command="journalctl -u tracksd -n 5 --no-pager | grep 'Failed to Validate VRF'"
-submitpod_log_command="journalctl -u tracksd -n 5 --no-pager | grep 'ERR Error in SubmitPod'"
-verifypod_log_command="journalctl -u tracksd -n 5 --no-pager | grep 'ERR Error in VerifyPod'"
-verifyhash_log_command="journalctl -u tracksd -n 5 --no-pager | grep 'Failed to get transaction by hash: not found'"
+vrf_init_log_command="journalctl -u tracksd -n 5 --no-pager | grep 'Failed to Init VRF' | wc -l"
+vrf_record_log_command="journalctl -u tracksd -n 5 --no-pager | grep 'VRF record is nil' | wc -l"
+vrf_validate_log_command="journalctl -u tracksd -n 5 --no-pager | grep 'Failed to Validate VRF' | wc -l"
+submitpod_log_command="journalctl -u tracksd -n 5 --no-pager | grep 'ERR Error in SubmitPod' | wc -l"
+verifypod_log_command="journalctl -u tracksd -n 5 --no-pager | grep 'ERR Error in VerifyPod' | wc -l"
+verifyhash_log_command="journalctl -u tracksd -n 5 --no-pager | grep 'Failed to get transaction by hash: not found' | wc -l"
+switchyard_error_command="journalctl -u tracksd -n 5 --no-pager | grep 'Switchyard client connection error' | wc -l"
 
 # Log dosyası kontrolü
 check_log_file="/root/check_tracks.log"
@@ -147,6 +148,7 @@ vrf_validate_errors=$(eval $vrf_validate_log_command)
 submitpod_errors=$(eval $submitpod_log_command)
 verifypod_errors=$(eval $verifypod_log_command)
 verifyhash_errors=$(eval $verifyhash_log_command)
+switchyard_errors=$(eval $switchyard_error_command)
 
 echo "Son 5 hata (Failed to Init VRF):"
 echo "$vrf_init_errors"
@@ -166,9 +168,12 @@ echo ""
 echo "Son 5 hata (Failed to get transaction by hash: not found):"
 echo "$verifyhash_errors"
 echo ""
+echo "Son 5 hata (Switchyard client connection error):"
+echo "$switchyard_errors"
+echo ""
 
 # Toplam hata sayısı kontrolü
-total_errors=$((vrf_init_errors + vrf_record_errors + vrf_validate_errors + submitpod_errors + verifypod_errors + verifyhash_errors))
+total_errors=$((vrf_init_errors + vrf_record_errors + vrf_validate_errors + submitpod_errors + verifypod_errors + verifyhash_errors + switchyard_errors))
 
 if [ $total_errors -ge 5 ]; then
     echo "Toplam 5 veya daha fazla hata tespit edildi, servis durdurulacak ve yeniden başlatılacak..."
@@ -187,6 +192,7 @@ if [ $total_errors -ge 5 ]; then
 else
     echo "Hata tespit edilmedi veya hata sayısı yeterli değil, servis pasif durumda."
 fi
+
 ```
 
 
