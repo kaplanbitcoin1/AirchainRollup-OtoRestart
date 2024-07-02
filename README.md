@@ -91,12 +91,12 @@ crontab -e
 * Bu komutu içerisine ekleyelim. (Eğer görseldeki gibi komutlar varsa (ki olması muhtemel) en alt kısma # ekleyip komutu yanına yapıştıralım. ctrl+x, ctrl+y= Enter)
 
 
-<img width="488" alt="Ekran Resmi 2024-07-02 16 23 42" src="https://github.com/kaplanbitcoin1/AirchainRollup-OtoRestart/assets/98455323/2008b59b-c972-4861-9541-d56acca17696">
-
-
 ```console
 */5 * * * * bash /root/check_tracks.sh >> /root/check_tracks.log 2>&1
 ```
+
+<img width="488" alt="Ekran Resmi 2024-07-02 16 23 42" src="https://github.com/kaplanbitcoin1/AirchainRollup-OtoRestart/assets/98455323/2008b59b-c972-4861-9541-d56acca17696">
+
 
 * Son olarak tek komut
 
