@@ -110,7 +110,6 @@ sudo journalctl -u tracksd -fo cat
 
 > Sanırım? 😁 🐅
 
-<img width="1536" alt="Done" src="https://github.com/kaplanbitcoin1/AirchainRollup-OtoRestart/assets/98455323/e2b1afa9-d799-4e40-8ef0-9b2b1566d859">
 
 
 
