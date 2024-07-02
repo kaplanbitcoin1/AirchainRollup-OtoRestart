@@ -1,10 +1,15 @@
+> Öncelikle CoreNode fedailerine teşekkürler 😁 İlk içeriği @eskola1 ve @brkcinar yapmış.
+> 10 Dakika olan hata tespit durumunu 5 dakikaya indirdim çünkü Rollup genellikle 3-4 pod bastıktan sonra hataya düşüyor ve tekrar pod basmaya çalışıyor. Bu arada geçen süredeki denemeler sonuçsuz kalıyor ve 10 dakika yerine 5 dakikayı seçmemin nedeni bu, fazladan beklememek. Duruma göre 2-3 dakikayı da deneyebiliriz 😳
+
+
 * İlk olarak bu dosyanın içerisine girelim
 
 
 ```console
 nano /root/check_tracks.sh
 ```
-* İçerisine tek komut olarak yapıştıralım
+
+* Bu komutu içerisine yapıştıralım ve ctrl+x, ctrl+y=Enter. (Hiçbir şeyi değiştirmeden)
 
 ```shell
 # Log dosyasındaki hataları kontrol eden komutlar
@@ -83,8 +88,21 @@ crontab -e
 ```
 
 
-* Bu komutu ekleyelim
+* Bu komutu içerisine ekleyelim. (Eğer görseldeki gibi komutlar varsa (ki olması muhtemel) en alt kısma # ekleyip komutu yanına yapıştıralım. ctrl+x, ctrl+y= Enter)
 
 ```console
 */5 * * * * bash /root/check_tracks.sh >> /root/check_tracks.log 2>&1
 ```
+
+* Son olarak tek komut
+
+```console
+sudo systemctl stop tracksd 
+
+systemctl restart tracksd
+
+sudo journalctl -u tracksd -fo cat
+```
+
+
+> Bir insan ömrünü neye vermeli? (Diyelim, günün anlam ve öenmine karşılık)
