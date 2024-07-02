@@ -8,7 +8,7 @@
 * İlk olarak bu dosyanın içerisine girelim
 
 
-```dos
+```console
 nano /root/check_tracks.sh
 ```
 
