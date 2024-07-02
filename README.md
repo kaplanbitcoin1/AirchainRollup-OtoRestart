@@ -90,7 +90,7 @@ crontab -e
 ```
 
 
-* Bu komutu içerisine ekleyelim. (Eğer görseldeki gibi komutlar varsa (ki olması muhtemel) en alt kısma # ekleyip komutu yanına yapıştıralım. (Ctrl+x + Ctrl+y= Enter)
+* Bu komutu içerisine ekleyelim. (Eğer görseldeki gibi komutlar varsa (ki olması muhtemel) en alt kısma # ekleyip komutu yanına yapıştıralım. Eğer hiçbir şey olmadıysa bile bir şeyler olmuş olabilir: Tek komut yapıştırıp (Ctrl+x + Ctrl+y= Enter)
 
 
 ```console
