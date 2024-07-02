@@ -8,7 +8,7 @@
 * İlk olarak bu dosyanın içerisine girelim
 
 
-```powershell
+```dos
 nano /root/check_tracks.sh
 ```
 
