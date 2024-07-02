@@ -30,11 +30,11 @@ log_entry_count=$(eval $check_log_command)
 
 echo "Son 5 dakika içinde log dosyasına eklenen girdi sayısı: $log_entry_count"
 
-# Son 5 dakika içinde log dosyasına girdi eklenmediyse, servis yeniden başlatılıyor
+# Son 5 dakika içinde log dosyasına girdi eklenmediyse, servis durduruluyor ve yeniden başlatılıyor
 if [ $log_entry_count -eq 0 ]; then
-    echo "Son 5 dakika içinde log dosyasına girdi eklenmedi, servis yeniden başlatılıyor..."
-    restart_command="sudo systemctl restart tracksd && sudo journalctl -u tracksd -fo cat"
-    eval $restart_command
+    echo "Son 5 dakika içinde log dosyasına girdi eklenmedi, servis durduruluyor ve yeniden başlatılıyor..."
+    sudo systemctl stop tracksd
+    sudo systemctl restart tracksd
     exit 0
 fi
 
@@ -56,26 +56,22 @@ echo "Failed to get transaction by hash: not found hatasının sayısı: $verify
 if [ $vrf_init_log_count -ge 1 ] || [ $vrf_record_log_count -ge 1 ] || [ $vrf_validate_log_count -ge 1 ]; then
     echo "VRF hataları tespit edildi, servis durdurulacak ve yeniden başlatılacak..."
 
-    stop_command="sudo systemctl stop tracksd"
-    restart_command="sudo systemctl restart tracksd"
-
-    eval $stop_command
-    eval $restart_command
+    sudo systemctl stop tracksd
+    sudo systemctl restart tracksd
 
 elif [ $submitpod_log_count -ge 3 ] || [ $verifypod_log_count -ge 3 ] || [ $verifyhash_log_count -ge 1 ]; then
     echo "SubmitPod ve VerifyPod hataları tespit edildi (3 veya daha fazla), servis durdurulacak, rollback yapılacak ve yeniden başlatılacak..."
 
-    stop_command="sudo systemctl stop tracksd"
-    rollback_command="/root/./tracks rollback && /root/./tracks rollback && /root/./tracks rollback"
-    restart_command="sudo systemctl restart tracksd"
-
-    eval $stop_command
-    eval $rollback_command
-    eval $restart_command
+    sudo systemctl stop tracksd
+    /root/./tracks rollback
+    /root/./tracks rollback
+    /root/./tracks rollback
+    sudo systemctl restart tracksd
 
 else
     echo "Hata tespit edilmedi, servis pasif durumda."
 fi
+
 ```
 
 * Çalışma izni verelim
@@ -115,3 +111,82 @@ sudo journalctl -u tracksd -fo cat
 > Sanırım? 😁 🐅
 
 <img width="1536" alt="Done" src="https://github.com/kaplanbitcoin1/AirchainRollup-OtoRestart/assets/98455323/e2b1afa9-d799-4e40-8ef0-9b2b1566d859">
+
+
+
+* Son Rötuşlar: Eğer hata aldıktan sonra Script'in 5 dakika'da restart yapması yerine, 5 defa hata aldığında restart yapsını isterseniz, 'nano /root/check_tracks.sh' içerisine bu komutu yapıştırın ve kahvenizden bir yudum alın)  
+
+```console
+# Log dosyasındaki hataları kontrol eden komutlar
+vrf_init_log_command="journalctl -u tracksd -n 5 --no-pager | grep 'Failed to Init VRF'"
+vrf_record_log_command="journalctl -u tracksd -n 5 --no-pager | grep 'VRF record is nil'"
+vrf_validate_log_command="journalctl -u tracksd -n 5 --no-pager | grep 'Failed to Validate VRF'"
+submitpod_log_command="journalctl -u tracksd -n 5 --no-pager | grep 'ERR Error in SubmitPod'"
+verifypod_log_command="journalctl -u tracksd -n 5 --no-pager | grep 'ERR Error in VerifyPod'"
+verifyhash_log_command="journalctl -u tracksd -n 5 --no-pager | grep 'Failed to get transaction by hash: not found'"
+
+# Log dosyası kontrolü
+check_log_file="/root/check_tracks.log"
+check_log_command="find $check_log_file -mmin -5 | wc -l"
+log_entry_count=$(eval $check_log_command)
+
+echo "Son 5 dakika içinde log dosyasına eklenen girdi sayısı: $log_entry_count"
+
+# Son 5 dakika içinde log dosyasına girdi eklenmediyse, servis durduruluyor ve yeniden başlatılıyor
+if [ $log_entry_count -eq 0 ]; then
+    echo "Son 5 dakika içinde log dosyasına girdi eklenmedi, servis durduruluyor ve yeniden başlatılıyor..."
+    sudo systemctl stop tracksd
+    sudo systemctl restart tracksd
+    exit 0
+fi
+
+# Hata kontrolü ve işlemler
+vrf_init_errors=$(eval $vrf_init_log_command)
+vrf_record_errors=$(eval $vrf_record_log_command)
+vrf_validate_errors=$(eval $vrf_validate_log_command)
+submitpod_errors=$(eval $submitpod_log_command)
+verifypod_errors=$(eval $verifypod_log_command)
+verifyhash_errors=$(eval $verifyhash_log_command)
+
+echo "Son 5 hata (Failed to Init VRF):"
+echo "$vrf_init_errors"
+echo ""
+echo "Son 5 hata (VRF record is nil):"
+echo "$vrf_record_errors"
+echo ""
+echo "Son 5 hata (Failed to Validate VRF):"
+echo "$vrf_validate_errors"
+echo ""
+echo "Son 5 hata (ERR Error in SubmitPod):"
+echo "$submitpod_errors"
+echo ""
+echo "Son 5 hata (ERR Error in VerifyPod):"
+echo "$verifypod_errors"
+echo ""
+echo "Son 5 hata (Failed to get transaction by hash: not found):"
+echo "$verifyhash_errors"
+echo ""
+
+# Toplam hata sayısı kontrolü
+total_errors=$((vrf_init_errors + vrf_record_errors + vrf_validate_errors + submitpod_errors + verifypod_errors + verifyhash_errors))
+
+if [ $total_errors -ge 5 ]; then
+    echo "Toplam 5 veya daha fazla hata tespit edildi, servis durdurulacak ve yeniden başlatılacak..."
+
+    sudo systemctl stop tracksd
+
+    # Pod hataları için rollback
+    if [ $submitpod_errors -ge 3 ] || [ $verifypod_errors -ge 3 ] || [ $verifyhash_errors -ge 1 ]; then
+        /root/./tracks rollback
+        /root/./tracks rollback
+        /root/./tracks rollback
+    fi
+
+    sudo systemctl restart tracksd
+
+else
+    echo "Hata tespit edilmedi veya hata sayısı yeterli değil, servis pasif durumda."
+fi
+```
+
+
