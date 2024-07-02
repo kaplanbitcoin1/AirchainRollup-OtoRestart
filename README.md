@@ -1,12 +1,12 @@
 * İlk olarak bu dosyanın içerisine girelim
 
 
-```shell
+```console
 nano /root/check_tracks.sh
 ```
 * İçerisine tek komut olarak yapıştıralım
 
-```shell
+```console
 # Log dosyasındaki hataları kontrol eden komutlar
 vrf_init_log_command="journalctl -u tracksd -n 5 --no-pager | grep 'Failed to Init VRF' | wc -l"
 vrf_record_log_command="journalctl -u tracksd -n 5 --no-pager | grep 'VRF record is nil' | wc -l"
