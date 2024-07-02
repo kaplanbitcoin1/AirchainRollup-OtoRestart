@@ -8,7 +8,7 @@
 * İlk olarak bu dosyanın içerisine girelim
 
 
-```console
+```powershell
 nano /root/check_tracks.sh
 ```
 
@@ -116,7 +116,7 @@ sudo journalctl -u tracksd -fo cat
 
 * Son Rötuşlar: Eğer hata aldıktan sonra Script'in 5 dakika'da restart yapması yerine, 5 defa hata aldığında restart yapmasını isterseniz, 'nano /root/check_tracks.sh' içerisine bu komutu yapıştırın ve kahvenizden bir yudum alın)  
 
-```shell
+```powershell
 # Log dosyasındaki hataları kontrol eden komutlar
 vrf_init_log_command="journalctl -u tracksd -n 5 --no-pager | grep 'Failed to Init VRF'"
 vrf_record_log_command="journalctl -u tracksd -n 5 --no-pager | grep 'VRF record is nil'"
