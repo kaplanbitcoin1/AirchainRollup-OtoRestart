@@ -70,4 +70,21 @@ else
 fi
 ```
 
+* Çalışma izni verelim
 
+```console
+chmod +x check_tracks.sh
+```
+
+* Dosya içine girelim
+
+```console
+crontab -e
+```
+
+
+* Bu komutu ekleyelim
+
+```console
+*/5 * * * * bash /root/check_tracks.sh >> /root/check_tracks.log 2>&1
+```
