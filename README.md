@@ -1,4 +1,6 @@
-### Öncelikle Core Node fedailerine teşekkürler 😁 İlk içeriği @eskola1 ve @brkcinar yapmış.
+
+
+> Öncelikle Core Node fedailerine teşekkürler 😁 İlk içeriği @eskola1 ve @brkcinar yapmış.
 * 10 Dakika olan hata tespit durumunu 5 dakikaya indirdim çünkü Rollup genellikle 3-4 pod bastıktan sonra hataya düşüyor ve tekrar pod basmaya çalışıyor. Bu arada geçen süredeki denemeler sonuçsuz kalıyor ve 10 dakika yerine 5 dakikayı seçmemin nedeni bu: Fazladan beklememek. Duruma göre 2-3 dakikayı da deneyebiliriz 😳
 
 
