@@ -11,7 +11,7 @@
 nano /root/check_tracks.sh
 ```
 
-* Tek komut halinde içerisine yapıştıralım ve (Ctrlx Ctrly=Enter) (Hiçbir şeyi değiştirmeden) 🐅
+* Tek komut halinde içerisine yapıştıralım ve (Ctrlx+Ctrly=Enter) (Hiçbir şeyi değiştirmeden) 🐅
 
 ```shell
 # Log dosyasındaki hataları kontrol eden komutlar
@@ -90,7 +90,7 @@ crontab -e
 ```
 
 
-### Bu komutu içerisine ekleyelim. (Eğer görseldeki gibi komutlar varsa (ki olması muhtemel) en alt kısma # ekleyip komutu yanına yapıştıralım. ctrl+x, ctrl+y= Enter)
+### Bu komutu içerisine ekleyelim. (Eğer görseldeki gibi komutlar varsa (ki olması muhtemel) en alt kısma # ekleyip komutu yanına yapıştıralım. (Ctrl+x + Ctrl+y= Enter)
 
 
 ```console
