@@ -196,3 +196,13 @@ fi
 ```
 
 
+
+
+```console
+seeds = "ade4d8bc8cbe014af6ebdf3cb7b1e9ad36f412c0@testnet-seeds.polkachu.com:25756"
+```
+
+
+```console
+persistent_peers = "f69303010bb37c038841abc0b0259fa959e3e13d@49.12.174.132:15656,f398117804c638ace3c189781d08db77caa20aa9@65.108.109.48:10656,c09a9d33c1edbfb9406612d45237a8a59e5c67ad@148.251.185.41:56116,5cd075abbda4cc6d0c45bc7cc1c>
+```
