@@ -192,6 +192,7 @@ else
     echo "Hata tespit edilmedi veya hata sayısı yeterli değil, servis pasif durumda."
 fi
 
+
 ```
 
 
