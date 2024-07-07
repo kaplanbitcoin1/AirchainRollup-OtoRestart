@@ -43,7 +43,7 @@ sudo visudo
 
 
 
-* Cron Servisinin Çalışıp Çalışmadığını Kontrol Etme
+* Cron Servisinin Çalışıp Çalışmadığını Kontrol Etme. (Görseldeki gibi Active olmalı.)
 
 ```console
 sudo systemctl status cron
@@ -51,4 +51,11 @@ sudo systemctl status cron
 
 <img width="784" alt="Ekran Resmi 2024-07-07 10 23 54" src="https://github.com/kaplanbitcoin1/AirchainRollup-OtoRestart/assets/98455323/5d236760-9dd8-4fc7-84cf-aa4123f17d86">
 
+
+* Eğer servis aktif değilse, başlatmak için:
+
+
+```console
+sudo systemctl start cron
+```
 
