@@ -47,7 +47,7 @@ sudo visudo
 sudo journalctl -u tracksd -fo cat
 ```
 
-* Gördüğünüz gibi sorunsuz ilerliyor (gibi) her şey.
+* Gördüğünüz gibi sorunsuz ilerliyor her şey.
 
 <img width="1536" alt="Ekran Resmi 2024-07-07 09 44 00" src="https://github.com/kaplanbitcoin1/AirchainRollup-OtoRestart/assets/98455323/19e6bff7-955a-47af-acde-c5ba730ad9a0">
 
