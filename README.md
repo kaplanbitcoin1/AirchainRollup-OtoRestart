@@ -78,7 +78,7 @@ sudo systemctl start cron
 
 
 ### Yaptığımız İşlemleri Silmek İstersek:
-* Hatalar düzeltildiğinde (şimdilik pek mümkün görünmüyor) yaptığımız işlemleri geri alalım.
+* Rpc hataları vs. düzeltildiğinde (şimdilik pek mümkün görünmüyor) yaptığımız işlemleri geri alalım.
 
 ```console
 crontab -e
