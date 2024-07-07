@@ -22,7 +22,7 @@ crontab -e
 
 
 
-```rust
+```console
 hostname
 ```
 
