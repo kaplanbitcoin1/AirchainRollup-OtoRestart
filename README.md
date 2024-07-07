@@ -27,14 +27,15 @@ hostname
 
 <img width="649" alt="Ekran Resmi 2024-07-07 10 05 50" src="https://github.com/kaplanbitcoin1/AirchainRollup-OtoRestart/assets/98455323/217ad917-5798-448b-8588-f13ea17bdfa8">
 
-* Benim sunucu ismim 'vmi1949362' Sadece bu kısmı ekleyeceğiz Sudoers dosyasına. Bunun için diyelim.
+* Benim sunucu ismim 'vmi1949362'
+* Sudoers dosyasını düzenlemek için:
 
-```rust
+```console
 sudo visudo
 ```
 
 * En aşağı kısma gelelim ve kodu yapıştıralım. (Sunucuismin kısmını kendi bilgilerinizle değiştirelim. (Elbette Parantezleri Uçuralım)
 
-```rust
+```console
 (Sunucuİsmin) ALL=(ALL) NOPASSWD: /bin/systemctl stop tracksd, /bin/systemctl daemon-reload, /bin/systemctl enable tracksd, /bin/systemctl restart tracksd, /bin/journalctl -u tracksd -fo cat
 ```
