@@ -49,6 +49,6 @@ sudo visudo
 sudo systemctl status cron
 ```
 
-<img width="1016" alt="Ekran Resmi 2024-07-07 10 21 35" src="https://github.com/kaplanbitcoin1/AirchainRollup-OtoRestart/assets/98455323/d2bd1f84-f822-475f-990b-8362d67beff4">
+<img width="784" alt="Ekran Resmi 2024-07-07 10 23 54" src="https://github.com/kaplanbitcoin1/AirchainRollup-OtoRestart/assets/98455323/5d236760-9dd8-4fc7-84cf-aa4123f17d86">
 
 
