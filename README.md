@@ -2,7 +2,7 @@
 
 * İlk olara Cron tablosunu açalım.
 
-```rust
+```console
 crontab -e
 ```
 
