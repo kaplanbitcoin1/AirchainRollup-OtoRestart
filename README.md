@@ -34,8 +34,21 @@ hostname
 sudo visudo
 ```
 
-* En aşağı kısma gelelim ve kodu yapıştıralım. (Sunucuismin kısmını kendi bilgilerinizle değiştirelim. (Elbette Parantezleri Uçuralım)
+* En aşağı kısma gelelim ve kodu yapıştıralım. (Sunucuismin kısmını kendi bilgilerinizle değiştirelim. (Parantezler 🧨 😁)
 
 ```console
 (Sunucuismin) ALL=(ALL) NOPASSWD: /bin/systemctl stop tracksd, /bin/systemctl daemon-reload, /bin/systemctl enable tracksd, /bin/systemctl restart tracksd, /bin/journalctl -u tracksd -fo cat
 ```
+
+
+
+
+* Cron Servisinin Çalışıp Çalışmadığını Kontrol Etme
+
+```console
+sudo systemctl status cron
+```
+
+<img width="1016" alt="Ekran Resmi 2024-07-07 10 21 35" src="https://github.com/kaplanbitcoin1/AirchainRollup-OtoRestart/assets/98455323/d2bd1f84-f822-475f-990b-8362d67beff4">
+
+
