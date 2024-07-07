@@ -7,7 +7,7 @@ crontab -e
 ```
 
 # En alt kısma bu komutu ekleyelim. 
-> >>((*/10) kısmı bizim dakikamız. Ben 10 dakika olarak belirledim. İstediğiniz dakikayı belirleyebilirsiniz. (Özgürsünüz), (Muhtemelen😁)) Ctrlx-Ctrly-Enter
+> ((*/10) kısmı bizim dakikamız. Ben 10 dakika olarak belirledim. İstediğiniz dakikayı belirleyebilirsiniz. (Özgürsünüz), (Muhtemelen😁)) Ctrlx-Ctrly-Enter
 
 ```rust
 */10 * * * * sudo systemctl stop tracksd && sudo systemctl daemon-reload && sudo systemctl enable tracksd && sudo systemctl restart tracksd && sudo journalctl -u tracksd -fo cat
