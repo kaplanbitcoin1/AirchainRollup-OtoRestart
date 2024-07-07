@@ -72,6 +72,6 @@ sudo systemctl start cron
 
 * Son olarak ilgili arkadaşlara:
 
-* CronTab komutunu istediğiniz şekilde düzenleyebilirsiniz. Mesela rollback ekleyebilirsiniz.
+* CronTab kısmını istediğiniz şekilde düzenleyebilirsiniz. Mesela rollback ekleyebilirsiniz.
 
 * İşlemler bu kadardı. Güzel hafta sonları 🐅
