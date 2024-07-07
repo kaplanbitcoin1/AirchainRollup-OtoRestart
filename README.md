@@ -35,7 +35,7 @@ hostname
 sudo visudo
 ```
 
-* En aşağı kısma gelelim ve kodu yapıştıralım. (Sunucuismin kısmını kendi bilgilerinizle değiştirelim.
+* En aşağı kısma gelelim ve komutu yapıştıralım. (Sunucuismin kısmını kendi bilgilerinizle değiştirelim.
 * (Parantezler 🧨 😁) Ctrl+x - Ctrly+y - Enter
 
 ```console
