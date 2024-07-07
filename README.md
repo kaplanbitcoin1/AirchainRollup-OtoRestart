@@ -76,6 +76,9 @@ sudo systemctl start cron
 
 * CronTab kısmını istediğiniz şekilde düzenleyebilirsiniz. Mesela rollback ekleyebilirsiniz.
 
+* İşlemler bu kadardı. Güzel hafta sonları 🐅
+
+
 
 ### Yaptığımız İşlemleri Silmek İstersek:
 * Rpc hataları ve diğer hatalar düzeltildiğinde (şimdilik pek mümkün görünmüyor) yaptığımız işlemleri geri alalım.
@@ -98,4 +101,4 @@ sudo visudo
 
 
 
-* İşlemler bu kadardı. Güzel hafta sonları 🐅
+
