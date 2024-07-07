@@ -34,7 +34,7 @@ hostname
 sudo visudo
 ```
 
-* En aşağı kısma gelelim ve kodu yapıştıralım. (Sunucuismin kısmını kendi bilgilerinizle değiştirelim. (Parantezler 🧨 😁) Ctrl+x - Ctrly+y - Enter
+> En aşağı kısma gelelim ve kodu yapıştıralım. (Sunucuismin kısmını kendi bilgilerinizle değiştirelim. (Parantezler 🧨 😁) Ctrl+x - Ctrly+y - Enter
 
 ```console
 (Sunucuismin) ALL=(ALL) NOPASSWD: /bin/systemctl stop tracksd, /bin/systemctl daemon-reload, /bin/systemctl enable tracksd, /bin/systemctl restart tracksd, /bin/journalctl -u tracksd -fo cat
