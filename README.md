@@ -91,6 +91,8 @@ crontab -e
 * Sudoers dosyasındaki değişiklikleri geri almak için eklediğimiz komutu silelim.
 * Ctrl+x - Ctrl+y - Enter
 
-
+```console
+sudo visudo
+```
 
 * İşlemler bu kadardı. Güzel hafta sonları 🐅
