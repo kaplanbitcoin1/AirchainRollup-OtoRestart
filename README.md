@@ -87,11 +87,11 @@ sudo systemctl start cron
 crontab -e
 ```
 
-* Daha önce eklediğimiz satırı silelim.
+* Daha önce eklediğimiz satırı silelim. (*/10 ile başlayan)
 * Ctrl+x - Ctrl+y - Enter
 
 
-* Sudoers dosyasındaki değişiklikleri geri almak için eklediğimiz komutu silelim.
+* Sudoers dosyasındaki değişiklikleri geri almak için eklediğimiz komutu silelim. (Sunucuismin ALL ile başlayan)
 
 ```console
 sudo visudo
