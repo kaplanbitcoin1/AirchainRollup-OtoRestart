@@ -17,7 +17,7 @@ crontab -e
 <img width="1304" alt="Ekran Resmi 2024-07-07 10 12 33" src="https://github.com/kaplanbitcoin1/AirchainRollup-OtoRestart/assets/98455323/575d05f8-fb98-4ef8-ad76-49980f629e09">
 
 
-* Şimdi Sudoers Dosyasındaki Değişiklikleri oluşturmamız gerekiyor. Bunun için öncelikle Hostname öğrenelim. (Bu zaten sunucunuzun ismi. Sunucu oluştururken isim vermediyseniz size rastgele bir isim atanmıştır, bunu öğrenelim. (Aslında sunucuya giriş yaptığımızda görünüyor)
+* Şimdi Sudoers dosyasındaki değişiklikleri oluşturmamız gerekiyor. Bunun için öncelikle Hostname öğrenelim. (Bu zaten sunucunuzun ismi. Sunucu oluştururken isim vermediyseniz size rastgele bir isim atanmıştır, bunu öğrenelim. (Aslında sunucuya giriş yaptığımızda görünüyor)
 
 
 
