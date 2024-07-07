@@ -77,7 +77,7 @@ sudo systemctl start cron
 * CronTab kısmını istediğiniz şekilde düzenleyebilirsiniz. Mesela rollback ekleyebilirsiniz.
 
 
-
+### Yaptığımız İşlemleri Silmek İstersek:
 # Hatalar düzeltildiğinde (şimdilik pek mümkün görünmüyor) yaptığımız işlemleri geri alalım.
 
 ```console
