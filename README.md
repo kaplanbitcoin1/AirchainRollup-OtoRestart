@@ -76,4 +76,21 @@ sudo systemctl start cron
 
 * CronTab kısmını istediğiniz şekilde düzenleyebilirsiniz. Mesela rollback ekleyebilirsiniz.
 
+
+
+# Hatalar düzeltildiğinde (şimdilik pek mümkün görünmüyor) yaptığımız işlemleri geri alalım.
+
+```console
+crontab -e
+```
+
+* Daha önce eklediğimiz satırı silelim.
+* Ctrl+x - Ctrl+y - Enter
+
+
+* Sudoers dosyasındaki değişiklikleri geri almak için eklediğimiz komutu silelim.
+* Ctrl+x - Ctrl+y - Enter
+
+
+
 * İşlemler bu kadardı. Güzel hafta sonları 🐅
