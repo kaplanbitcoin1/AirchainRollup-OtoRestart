@@ -13,7 +13,7 @@ crontab -e
 */10 * * * * sudo systemctl stop tracksd && sudo systemctl daemon-reload && sudo systemctl enable tracksd && sudo systemctl restart tracksd && sudo journalctl -u tracksd -fo cat
 ```
 
-<img width="1347" alt="Ekran Resmi 2024-07-07 10 11 39" src="https://github.com/kaplanbitcoin1/AirchainRollup-OtoRestart/assets/98455323/acf791d3-9e11-4ab8-aab4-a6d980c96bd2">
+<img width="1304" alt="Ekran Resmi 2024-07-07 10 12 33" src="https://github.com/kaplanbitcoin1/AirchainRollup-OtoRestart/assets/98455323/575d05f8-fb98-4ef8-ad76-49980f629e09">
 
 
 * Şimdi Sudoers Dosyasındaki Değişiklikleri oluşturmamız gerekiyor. Bunun için öncelikle Hostname öğrenelim. (Bu zaten sunucunuzun ismi. Sunucu oluştururken isim vermediyseniz size rastgele bir isim atanmıştır, bunu öğrenelim. (Aslında sunucuya giriş yaptığımızda görünüyor)
